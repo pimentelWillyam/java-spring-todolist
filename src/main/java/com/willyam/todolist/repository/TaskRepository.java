@@ -1,12 +1,10 @@
 package com.willyam.todolist.repository;
 
-import  com.willyam.todolist.entity.Task;
+import com.willyam.todolist.entity.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TaskRepository<Task, Long> {
-    public interface TaskRepository extends JpaRepository<Task, Long>{
+public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    }
 }
