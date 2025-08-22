@@ -20,6 +20,10 @@ public class TaskController {
         return service.getAllTasks();
     }
 
+    @GetMapping("/{id}")
+    public Task getTask(@PathVariable Long id){
+        return service.getTask(id);
+    }
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return service.createTask(task);
