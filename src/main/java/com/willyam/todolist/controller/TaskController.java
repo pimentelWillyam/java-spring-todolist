@@ -40,6 +40,11 @@ public class TaskController {
         return service.createTask(task);
     }
 
+    @PatchMapping("/{id}")
+    public Task updateTask(@PathVariable Long id){
+        return service.updateTask(id);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
