@@ -10,8 +10,18 @@ import java.util.List;
 @Service
 public class TaskService {
 
-    public Task getAllTasks() {
-        return [];
+    private final TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository){
+        this.taskRepository = taskRepository;
+    }
+
+    public List<Task> getAllTasks(){
+        return this.taskRepository.findAll();
+    }
+
+    public Task getTask(Long id){
+        return this.taskRepository.findById(id);
     }
 
 }
