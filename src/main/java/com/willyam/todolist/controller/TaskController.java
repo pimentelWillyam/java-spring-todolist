@@ -30,6 +30,11 @@ public class TaskController {
         return service.getAllCompletedTasks();
     }
 
+    @GetMapping("/incompleted")
+    public List<Task> getAllIncompletedTasks() {
+        return service.getAllIncompletedTasks();
+    }
+
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return service.createTask(task);
