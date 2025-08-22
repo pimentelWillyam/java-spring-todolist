@@ -24,6 +24,12 @@ public class TaskController {
     public Task getTask(@PathVariable Long id){
         return service.getTask(id);
     }
+
+    @GetMapping("/completed")
+    public List<Task> getAllCompletedTasks() {
+        return service.getAllCompletedTasks();
+    }
+
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return service.createTask(task);
