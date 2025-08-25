@@ -30,4 +30,11 @@ public class TaskService {
         return taskRepository.findByCompletedTrue();
     }
 
+    public List<Task> getAllIncompletedTasks(){
+        return taskRepository.findByCompletedFalse();
+    }
+
+    public Task createTask(Task task){
+        return taskRepository.save(task);
+    }
 }
