@@ -20,8 +20,14 @@ public class TaskService {
         return this.taskRepository.findAll();
     }
 
-    public Task getTask(Long id){
-        return this.taskRepository.findById(id);
+
+    public Task getTask(Long id) {
+        return taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada com ID: " + id));
+    }
+
+    public List<Task> getAllCompletedTasks(){
+        return taskRepository.findByCompletedTrue();
     }
 
 }
