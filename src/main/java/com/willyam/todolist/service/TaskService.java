@@ -37,4 +37,13 @@ public class TaskService {
     public Task createTask(Task task){
         return taskRepository.save(task);
     }
+
+    public Task updateTask(Long id, Task newTask){
+        Task task = taskRepository.findById(id).orElseThrow();
+        task.setTitle(newTask.getTitle());
+        task.setDescription(newTask.getDescription());
+        task.setCompleted(newTask.isCompleted());
+        taskRepository.save(task);
+        return task;
+    }
 }
