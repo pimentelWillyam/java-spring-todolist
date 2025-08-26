@@ -2,6 +2,8 @@ package com.willyam.todolist.service;
 
 import com.willyam.todolist.entity.Task;
 import com.willyam.todolist.repository.TaskRepository;
+import org.aspectj.weaver.AjAttribute;
+import org.springdoc.core.configuration.oauth2.SpringDocOAuth2Token;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,9 +42,9 @@ public class TaskService {
 
     public Task updateTask(Long id, Task newTask){
         Task task = taskRepository.findById(id).orElseThrow();
-        task.setTitle(newTask.getTitle());
-        task.setDescription(newTask.getDescription());
-        task.setCompleted(newTask.isCompleted());
+        if (newTask.getTitle() != null) task.setTitle(newTask.getTitle());
+        if (newTask.getDescription() != null) task.setDescription(newTask.getDescription());
+        if (newTask.getCompleted() != null) task.setCompleted(newTask.getCompleted());
         taskRepository.save(task);
         return task;
     }
