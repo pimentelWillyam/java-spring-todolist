@@ -47,6 +47,10 @@ public class TaskService {
         return task;
     }
 
+    public void deleteAll(){
+        taskRepository.deleteAll();
+    }
+
     public void deleteTask(Long id){
         Task task = taskRepository.findById(id).orElseThrow();
         taskRepository.delete(task);
