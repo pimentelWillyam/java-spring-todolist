@@ -42,7 +42,7 @@ public class TaskService {
         Task task = taskRepository.findById(id).orElseThrow();
         task.setTitle(newTask.getTitle());
         task.setDescription(newTask.getDescription());
-        task.setCompleted(newTask.isCompleted());
+        task.setCompleted(false);
         taskRepository.save(task);
         return task;
     }
