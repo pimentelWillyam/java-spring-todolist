@@ -45,6 +45,11 @@ public class TaskController {
         return service.updateTask(id, task);
     }
 
+    @DeleteMapping()
+    public void deleteAll() {
+        service.deleteAll();
+    }
+
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
